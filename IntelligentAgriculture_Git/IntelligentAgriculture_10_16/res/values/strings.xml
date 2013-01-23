@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, FarmListAcitivity!</string>
+    <string name="app_name">Intelligent-Agriculture</string>
+    <string name="farmlist.update">更新列表</string>
+    <string name="farmlist.about">关于</string>
+    <string name="ipv4_lab_wired">192.168.10.237</string>
+    <string name="ipv4_lab_wireless">192.168.10.236</string>
+    <string name="ipv4_dormitory_wired">10.0.0.7</string>
+    
+</resources>

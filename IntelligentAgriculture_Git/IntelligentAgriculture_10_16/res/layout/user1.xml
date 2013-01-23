@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent"
+	android:orientation="horizontal" android:paddingLeft="10dip"
+	android:paddingRight="10dip" android:paddingTop="1dip"
+	android:paddingBottom="1dip">
+	<TextView android:id="@+id/farm_id" android:layout_width="30dip"
+		android:layout_height="35dip" android:textSize="10pt"
+		/>
+	<TextView android:id="@+id/farm_time" android:layout_width="70dip"
+		android:layout_height="35dip" android:textSize="10pt"
+		/>
+	<TextView android:id="@+id/farm_CO2" android:layout_width="50dip"
+		android:layout_height="35dip" android:textSize="10pt"
+		/>
+	<TextView android:id="@+id/farm_temperature" android:layout_width="50dip"
+		android:layout_height="35dip" android:textSize="10pt"
+		/>
+	<TextView android:id="@+id/farm_humidity" android:layout_width="50dip"
+		android:layout_height="35dip" android:textSize="10pt"
+		/>
+	<TextView android:id="@+id/farm_light" android:layout_width="fill_parent"
+		android:layout_height="fill_parent" android:textSize="10pt" 
+		/>
+</LinearLayout>

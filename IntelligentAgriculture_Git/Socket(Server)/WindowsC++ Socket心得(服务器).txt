@@ -1,0 +1,58 @@
+1、建立项目ServDemo时，在高级功能中选中“Windows套接字”
+
+2、在类视图中，添加“MFC类”，在基类中选择“CSocket”，添加CServSocket和CRecvSocket
+
+3、在ServDemoDlg.h，语句“#pragma once”后加入如下语句
+#include "CServSocket.h"
+#include "CRecvSocket.h"
+然后添加两个变量
+public:
+	CServSocket *ServSocket;
+	CRecvSocket *RecvSocket;
+
+4、在CServSocket.h中，语句“#pragma once”后加入如下语句
+class CServDemoDlg;
+然后添加一个变量一个函数
+public:
+	CServSocket(CServDemoDlg *Dlg);
+	CServDemoDlg *m_Dlg;
+
+在CServSocket.cpp中，添加代码
+#include "ServDemoDlg.h"
+CServSocket::CServSocket(CServDemoDlg *Dlg)
+{
+	m_Dlg=Dlg;
+}
+同样处理CRecvSocket.h和CRecvSocket.cpp文件，完成套接字类和对话框类的相互定义
+
+5、建立套接字(ServDemoDlg.cpp)
+ServSocket=new CServSocket(this);	//建立套接字
+ServSocket->Create(10000);		//设定连接端口
+ServSocket->Listen();			//侦听开始
+
+6、接收连接请求
+在CServSocket.h中加入
+#include "CRecvSocket.h"
+重载CServSocket类的OnAccept函数，加入
+CRecvSocket *tempSock;
+tempSock =new CRecvSocket (this->m_Dlg )
+if(Accept(*tempSock))			//将建立的连接与RecvSocket连接
+{
+	m_Dlg->RecvSocket =tempSock;
+	tempSock=NULL;
+}
+	
+7、接收信息
+重载CRecvSocket类的OnReceive函数，加入
+CString str;
+char ctemp[1000];
+int i,j=1000;		
+i=Receive (ctemp,j,0);	//i接收到数据的长度 ctemp接收数据的数组 j每次接收的最大长度
+可重载CRecvSocket类的OnClose函数，判断客户端连接的断开
+
+8、发送信息(ServDemoDlg.cpp)
+CString str;
+str="发送信息";
+RecvSocket->Send (LPCTSTR(str),str.GetLength (),0);
+
+
